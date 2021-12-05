@@ -1,0 +1,146 @@
+[
+    {
+        "name": "SanDisk SDDR-12",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "Another Memory",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "Memory",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "SanDisk SDDR-12",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "SanDisk SDDR-12",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "SanDisk SDDR-12",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "SanDisk SDDR-12",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    },
+    {
+        "name": "SanDisk SDDR-12",
+        "price": "30.01",
+        "description": "12GB UHS-I memory card",
+        "rating": "4.5",
+        "images":[
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            },
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            },
+            {
+                "public_id": "products/tzfsnrli3szrdnb4jgge",
+                "url": "https://images-eu.ssl-images-amazon.com/images/I/310mw9KTJvL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Amazon",
+        "stock": 30,
+        "numofReviews": 11,
+        "reviews":[]
+    }
+]
