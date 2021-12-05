@@ -4,7 +4,9 @@
   "description": "A MERN Stack E-Commerce Web Application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT && nodemon backend/server.js",
+    "prod": "SET NODE_ENV=PRODUCTION && nodemon backend/server.js"
   },
   "repository": {
     "type": "git",
