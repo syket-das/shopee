@@ -18,3 +18,13 @@ exports.getProducts = async(req, res, next) => {
     products,
   });
 };
+
+// get single product => /api/v1/product/:id
+
+exports.getSingleProduct = async(req, res, next) => {
+  const product = await Product.findById(req.params.id);
+  res.status(200).json({
+    success: true,
+    product,
+  });
+}
