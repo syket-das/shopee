@@ -8,22 +8,20 @@ const products = require('../data/products.json');
 // setting env file
 dotenv.config({ path: 'backend/config/config.env' });
 
-connectDatabse();
+ connectDatabse();
 
 const seedProducts = async () => {
-    try{
-        await Product.deleteMany();
-        console.log('Products Deleted');
-        await Product.insertMany(products);
-        console.log('Products Seeded Successfully');
+    try {
+    await Product.deleteMany();
+    console.log('Products Deleted');
+    await Product.insertMany(products);
+    console.log('Products Seeded Successfully');
 
-        process.exit();
-
-    }catch(err){
-        console.log(err.message);
-        process.exit();
-    }
-    }
-
+    process.exit();
+  } catch (err) {
+    console.log(err.message);
+    process.exit();
+  }
+};
 
 seedProducts();
