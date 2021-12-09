@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
 
-const ErrorHandler = require('../utils/errorHandler')
+const ErrorHandler = require('../utils/errorHandler');
 
 // create new product  => /api/v1/product/new
 
@@ -26,13 +26,19 @@ exports.getProducts = async (req, res, next) => {
 // get single product => /api/v1/product/:id
 
 exports.getSingleProduct = async (req, res, next) => {
+  console.log(req.body);
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-    return next(new ErrorHandler('Invalid ID', 400));
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid ID',
+    });
   }
-
   const product = await Product.findById(req.params.id);
   if (!product) {
-    return next(new ErrorHandler('Product not found', 404));
+    return res.status(404).json({
+      success: false,
+      message: 'Product not found',
+    });
   }
   res.status(200).json({
     success: true,
@@ -71,10 +77,9 @@ exports.updateProduct = async (req, res, next) => {
   });
 };
 
-
 // delete product  => /api/v1/product/:id
 
- exports.deleteProduct = async (req, res, next) => {
+exports.deleteProduct = async (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({
       success: false,
@@ -95,4 +100,4 @@ exports.updateProduct = async (req, res, next) => {
     success: true,
     message: 'Product deleted successfully',
   });
-}
+};
