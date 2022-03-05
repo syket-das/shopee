@@ -157,8 +157,26 @@ exports.updatePssword = catchAsyncErrors(async (req, res, next) => {
   await user.save();
 
   sendToken(user, 200, res);
+});
 
+// Update user profile  => /api/v1/me/update
 
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+  const newUserData = {
+    name: req.body.name,
+    email: req.body.email,
+  };
+
+  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false,
+  });
+
+  res.status(200).json({
+    success: true,
+    user,
+  });
 });
 
 // Logout User => /api/v1/logout
@@ -172,5 +190,33 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: 'Logout Successfully',
+  });
+});
+
+// Get all users => /api/v1/admin/users
+
+exports.allUsers = catchAsyncErrors(async (req, res, next) => {
+  const users = await User.find();
+
+  res.status(200).json({
+    success: true,
+    users,
+  });
+});
+
+// Get user details => /api/v1/admin/user/:id
+
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next(
+      new ErrorHandler('No user found with that ' + req.params.id, 404)
+    );
+  }
+
+  res.status(200).json({
+    success: true,
+    user,
   });
 });
