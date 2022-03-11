@@ -63,7 +63,7 @@ const productSchema = new mongoose.Schema({
     maxlength: [5, 'Product stock must be less than 5 characters'],
     default: 0,
   },
-  NumOfReviews: {
+  numOfReviews: {
     type: Number,
     default: 0,
   },

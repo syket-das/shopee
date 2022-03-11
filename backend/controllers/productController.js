@@ -17,25 +17,25 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 // get all products => /api/v1/products
 
+// Get all products   =>   /api/v1/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  const resPerPage = 5;
-  const productCount = await Product.countDocuments();
+  const resPerPage = 8;
+  const productsCount = await Product.countDocuments();
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
     .search()
     .filter()
-    .pagination(resPerPage);
+    .pagination(resPerPage)
 
-  // const products = await Product.find();
-  const products = await apiFeatures.query;
+  let products = await apiFeatures.query;
+
   res.status(200).json({
     success: true,
-    count: products.length,
-    productCount,
+    productsCount,
+    resPerPage,
     products,
   });
 });
-
 // get single product => /api/v1/product/:id
 
 exports.getSingleProduct = async (req, res, next) => {
@@ -136,7 +136,7 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
     });
   } else {
     product.reviews.push(review);
-    product.NumOfReviews = product.reviews.length;
+    product.numOfReviews = product.reviews.length;
   }
 
   product.ratings =
@@ -185,16 +185,19 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     product.reviews.reduce((acc, item) => item.rating + acc, 0) /
     reviews.length;
 
-  await Product.findByIdAndUpdate(req.query.productId, {
-    reviews,
-    NumOfReviews: numOfReviews,
-    ratings,
-  },{
-    new: true,
-    runValidators: true,
-    useFindAndModify: false,
-
-  });
+  await Product.findByIdAndUpdate(
+    req.query.productId,
+    {
+      reviews,
+      numOfReviews,
+      ratings,
+    },
+    {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    }
+  );
 
   res.status(200).json({
     success: true,
