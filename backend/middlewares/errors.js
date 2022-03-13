@@ -2,9 +2,10 @@ const ErrorHandler = require('../utils/errorHandler');
 
 
 module.exports = (err, req, res, next) => {
+    const error = res.statusCode === 200 ? 500 : res.statusCode;
     err.statusCode = err.statusCode || 500;
 
-    if (process.env.NODE_ENV === 'DEVELOPMENT') {
+    if (process.env.NODE_ENV === 'DEVELOPMENT ') {
         console.log(err);
 
         res.status(err.statusCode).json({
@@ -15,7 +16,7 @@ module.exports = (err, req, res, next) => {
         })
     }
 
-    if (process.env.NODE_ENV === 'PRODUCTION') {
+    if (process.env.NODE_ENV === 'PRODUCTION ') {
         let error = { ...err }
 
         error.message = err.message;
@@ -57,3 +58,16 @@ module.exports = (err, req, res, next) => {
     }
 
 }
+
+
+
+// module.exports = (err, req, res, next) => {
+//     const error = res.statusCode === 200 ? 500 : res.statusCode;
+//     res.status(error).json({
+//       success: false,
+//       error: err.message,
+//       stack: process.env.NODE_ENV === 'PRODUCTION ' ? 'confidential' : err.stack,
+//     });
+// }
+
+

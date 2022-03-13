@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const cloudinary = require('cloudinary');
 
 const ErrorHandler = require('../utils/errorHandler');
 
@@ -12,6 +13,12 @@ const crypto = require('crypto');
 // Register User  => /api/v1/register
 
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
+  const result = await cloudinary.v2.uploader.upload(req.body.avatar,{
+    folder: 'shopee/avatars',
+    width: 250,
+    crop: 'scale'
+  });
+
   const { name, email, password } = req.body;
 
   const user = await User.create({
@@ -19,8 +26,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     email,
     password,
     avatar: {
-      public_id: 'avatars/kccvi',
-      url: 'https://res.cloudinary.com/dzqkqzqjy/image/upload/v1598424851/avatars/kccvi.png',
+      public_id: result.public_id,
+      url: result.secure_url,
     },
   });
 

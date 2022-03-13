@@ -37,8 +37,13 @@ const Home = ({ match }) => {
     'Home',
   ];
 
-  const { products, loading, error, productsCount, resPerPage } =
-    useSelector((state) => state.products);
+  const {
+    products,
+    loading,
+    error,
+    productsCount,
+    resPerPage,
+  } = useSelector((state) => state.products);
 
   const keyword = match.params.keyword;
 
@@ -48,7 +53,7 @@ const Home = ({ match }) => {
     // }
 
     dispatch(getProducts(keyword, currentPage, price, category, rating));
-  }, [dispatch, alert, error, currentPage, keyword, price, category,rating]);
+  }, [dispatch, alert, error, currentPage, keyword, price, category, rating]);
 
   const setCurrentPageNo = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -112,7 +117,7 @@ const Home = ({ match }) => {
                       <div className="mt-5">
                         <h4 className="mb-3">Ratings</h4>
                         <ul className="pl-0">
-                          {[5,4,3,2,1].map((star) => (
+                          {[5, 4, 3, 2, 1].map((star) => (
                             <li
                               style={{
                                 cursor: 'pointer',
@@ -125,13 +130,12 @@ const Home = ({ match }) => {
                               }}
                             >
                               <div className="rating-outer">
-                                <div className="rating-inner"
-                                style={{
-                                  width: `${star * 20}%`,
-                                }}
-                                >
-                                  
-                                  </div>
+                                <div
+                                  className="rating-inner"
+                                  style={{
+                                    width: `${star * 20}%`,
+                                  }}
+                                ></div>
                               </div>
                             </li>
                           ))}
