@@ -13,10 +13,10 @@ const crypto = require('crypto');
 // Register User  => /api/v1/register
 
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-  const result = await cloudinary.v2.uploader.upload(req.body.avatar,{
+  const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: 'shopee/avatars',
     width: 250,
-    crop: 'scale'
+    crop: 'scale',
   });
 
   const { name, email, password } = req.body;
@@ -80,11 +80,9 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // reset pass url
-  const resetUrl = `${req.protocol}://${req.get(
-    'host'
-  )}/api/v1/password/reset/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
-  const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetUrl}.\nIf you didn't forget your password, please ignore this email!`;
+  const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to:\n ${resetUrl} \n\n\nIf you didn't forget your password, please ignore this email!`;
 
   try {
     await sendEmail({
@@ -173,6 +171,23 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
   };
+
+  if (req.body.avatar !== '') {
+    const user = await User.findById(req.user.id);
+    const image_id = user.avatar.public_id;
+    const res = await cloudinary.v2.uploader.destroy(image_id);
+
+    const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: 'shopee/avatars',
+      width: 150,
+      crop: 'scale',
+    });
+
+    newUserData.avatar = {
+      public_id: result.public_id,
+      url: result.secure_url,
+    };
+  }
 
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
