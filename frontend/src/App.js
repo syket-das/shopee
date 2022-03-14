@@ -29,6 +29,8 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Payment from './components/cart/Payment';
 import OrderSuccess from './components/cart/OrderSuccess';
+import ListOrders from './components/order/ListOrders';
+import OrderDetails from './components/order/OrderDetails';
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState('');
@@ -53,15 +55,18 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductDetails} />
+
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} />
-          <ProtectedRoute path="/order/confirm" component={ConfirmOrder} />
-          <ProtectedRoute path="/success" component={OrderSuccess} />
+          <ProtectedRoute path="/confirmOrder" component={ConfirmOrder} exact />
+          <ProtectedRoute path="/success" component={OrderSuccess} exact />
+          
           {stripeApiKey && (
             <Elements stripe={loadStripe(stripeApiKey)}>
               <ProtectedRoute path="/payment" component={Payment} />
             </Elements>
           )}
+
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -75,6 +80,10 @@ function App() {
             component={UpdatePassword}
             exact
           />
+
+          <ProtectedRoute path="/orders/me" component={ListOrders} exact />
+          <ProtectedRoute path="/order/:id" component={OrderDetails} exact  />
+
         </Container>
         <Footer />
       </div>
