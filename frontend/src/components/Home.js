@@ -25,16 +25,16 @@ const Home = ({ match }) => {
   const [rating, setRating] = useState(0);
   const categories = [
     'Electronics',
-    'Cameras',
-    'Laptops',
     'Books',
     'Furnitures',
     'Foods',
     'Accessories',
-    'Clothes/Shoes',
+    'Clothes/Fashion',
     'Beauty/Health',
     'Outdoor',
     'Home',
+    'Sports',
+    'Others',
   ];
 
   const {
