@@ -26,10 +26,10 @@ const ProductReviews = () => {
   );
 
   useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
+    // if (error) {
+    //   alert.error(error);
+    //   dispatch(clearErrors());
+    // }
 
     if (deleteError) {
       alert.error(deleteError);

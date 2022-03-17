@@ -241,6 +241,7 @@ export const productReviewsReducer = (state = { review: [] }, action) => {
   switch (action.type) {
     case GET_REVIEWS_REQUEST:
       return {
+        ...state,
         loading: true,
       };
 
