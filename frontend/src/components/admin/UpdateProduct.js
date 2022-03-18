@@ -127,6 +127,7 @@ const UpdateProduct = ({ match, history }) => {
       reader.readAsDataURL(file);
     });
   };
+  // ----encounter - 1 
 
   return (
     <Fragment>
